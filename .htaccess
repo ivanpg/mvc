@@ -1,0 +1,10 @@
+RewriteEngine On #activar el motor de reescritura, si no esta activo
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#RewriteRule pattern target [Flag1,Flag2,Flag3]
+#si las RewriteCond son verdaderas se procedera con la RewriteRule
+#Pero si alguno de los anteriores RewriteCond nos dieron falso entonces se va cargar el archivo o carpeta
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
